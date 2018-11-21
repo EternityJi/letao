@@ -84,15 +84,16 @@ a:visited{
     border-radius: 50%;
     margin-bottom: 10px;
 } 
-.lt_sides .nav{
-    padding-left: 40px;
-
+.lt_aside .nav a.current {
+  background-color: #1D1F21;
+  border-left: 3px solid #006699;
 }
 .lt_sides .nav a{
   height: 40px;
   line-height: 40px;
   display: block;
   border-left: 3px solid transparent;
+  padding-left: 40px;
 }
 .lt_sides .nav a.current{
   background-color: #1D1F21;

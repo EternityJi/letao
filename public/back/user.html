@@ -10,9 +10,10 @@
   <!-- <link rel="stylesheet" href="./css/index.css"> -->
   <link rel="stylesheet" href="./lib/bootstrap-validator/css/bootstrapValidator.css"> 
   <link rel="stylesheet" href="./css/common.css">
-  <link rel="stylesheet" href="./css/index.css">
+  <link rel="stylesheet" href="./css/user.css">
   <!-- 引入进度条插件css -->
   <link rel='stylesheet' href='./lib/nprogress/nprogress.css'/>
+
   <title>Document</title>
 </head>
 <body>
@@ -62,6 +63,78 @@
           <li><a href="index.html">管理系统</a></li>
           <li class="active">首页</li>
         </ol>
+
+        <!-- 主体表格部分 -->
+        <div class="main">
+          <table class="table table-bordered .table-hover">
+              <thead>
+                <th>序号</th>
+                <th>用户名</th>
+                <th>手机号</th>
+                <th>状态</th>
+                <th>操作</th>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>1</td>
+                  <td>1</td>
+                  <td>1</td>
+                  <td>1</td>
+                  <td><button class="btn btn-success">启用</button></td>
+                </tr>
+                <!-- <tr>
+                  <td>2</td>
+                  <td>1</td>
+                  <td>1</td>
+                  <td>1</td>
+                  <td><button class="btn btn-success">启用</button></td>
+                </tr>
+                <tr>
+                  <td>3</td>
+                  <td>1</td>
+                  <td>1</td>
+                  <td>1</td>
+                  <td><button class="btn btn-success">启用</button></td>
+                </tr>
+                <tr>
+                  <td>4</td>
+                  <td>1</td>
+                  <td>1</td>
+                  <td>1</td>
+                  <td><button class="btn btn-success">启用</button></td>
+                </tr>
+                <tr>
+                  <td>5</td>
+                  <td>1</td>
+                  <td>1</td>
+                  <td>1</td>
+                  <td><button class="btn btn-success">启用</button></td>
+                </tr>
+                -->
+              </tbody>
+          </table>
+          <!-- 分页dom结构 -->
+          <div class="text-right">
+            <ul class="pagination">
+              <li>
+                <a href="#" aria-label="Previous">
+                  <span aria-hidden="true">&laquo;</span>
+                </a>
+              </li>
+              <li><a href="#">1</a></li>
+              <li><a href="#">2</a></li>
+              <li><a href="#">3</a></li>
+              <li><a href="#">4</a></li>
+              <li><a href="#">5</a></li>
+              <li>
+                <a href="#" aria-label="Next">
+                  <span aria-hidden="true">&raquo;</span>
+                </a>
+              </li>
+            </ul>
+          </div>
+       
+        </div>
       </div>
     
  </div>
@@ -92,7 +165,18 @@
       </div><!-- /.modal-content -->
     </div><!-- /.modal-dialog -->
   </div><!-- /.modal -->
+ <script type="text/html" id = "tmp">
+    {{each list v i}}
+     <tr>
+      <td>{{v.id}}</td>
+      <td>{{v.username}}</td>
+      <td>{{v.mobile}}</td>
+      <td>{{v.isDelete}}</td>
+      <td><button class="btn btn-success">启用</button></td>
+    </tr>
+    {{/each}}
  
+ </script>
  
   <script src="./lib/jquery/jquery.min.js"></script>
   <script src="./lib/bootstrap/js/bootstrap.js"></script>
@@ -100,8 +184,11 @@
   <script src = "./lib/nprogress/nprogress.js"></script>
   <script src ="./js/common.js"></script>
   <script src="./js/isLogin.js"></script>
- 
-  
- 
+  <script src="./js/user.js"></script>
+  <!-- 分页的js插件 -->
+  <script src = "./lib//bootstrap-paginator/bootstrap-paginator.js"></script>
+  <!-- 模板渲染js插件引入 -->
+  <script src = "./lib/artTemplate/template-web.js"></script>
+
 </body>
 </html>

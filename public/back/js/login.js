@@ -37,6 +37,9 @@ $(function(){
         regexp: {
           regexp: /^[a-zA-Z0-9_\.]+$/,
           message: '用户名由数字字母下划线和.组成'
+        },
+        callback:{
+          message:"用户名错误！"
         }
       }
     },
@@ -58,6 +61,9 @@ $(function(){
         regexp: {
           regexp: /^[a-zA-Z0-9_\.]+$/,
           message: '用户名由数字字母下划线和.组成'
+        },
+        callback:{
+          message:"密码错误！"
         }
       }
     },
@@ -92,20 +98,18 @@ $("#form").on('success.form.bv', function (e) {
            location.href = "index.html";
         }
         if(info.error == 1000){
-            // console.log("用户名错误");
-            // alert(info.message);
-            $mes.fadeIn(800,function(){
-                  $mes.fadeOut(800);
-            })
-            $p.text(info.message);
+              //  $p.text(info.message);
+              //  $mes.stop(true).fadeIn(800).delay(1000).fadeOut(800);
+
+              //用插件中校验信息的方法
+              //参数三  校验规则  根据前面写过的
+              $(form).data('bootstrapValidator').updateStatus("username", 'INVALID',"callback")
+
         }
         if(info.error == 1001){
-            // console.log("密码错误");
-            // alert(info.message);
-          $mes.fadeIn(800,function(){
-                $mes.fadeOut(800);
-          })
-          $p.text(info.message);
+          // $p.text(info.message);
+          // $mes.stop(true).fadeIn(800).delay(1000).fadeOut(800);
+          $(form).data('bootstrapValidator').updateStatus("password", 'INVALID',"callback")
         }
      } 
   })

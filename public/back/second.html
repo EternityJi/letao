@@ -105,7 +105,7 @@
                           <td>1</td>
                           <td>6</td>
                           <td>6</td>
-                          <td>6</td>
+                          <td><img src=""></td>
                        </tr>
           
                      </tbody>
@@ -123,8 +123,19 @@
     
  </div>
  </div>
+<!-- 模板引擎渲染页面 -->
+<script type="text/html" id = "secondtpl">
+  {{each rows v i}}
+  <tr>
+      <td>{{ (page-1)*size + i+1 }}</td>
+      <td>{{ v.categoryName}}</td>
+      <td>{{v.brandName}}</td>
+      <td><img style="height: 50px;" src="{{ v.brandLogo }}"></td>
+   </tr>
+  {{/each}}
+</script>
 
-
+    
 
  <!-- 模态框 -->
  <!-- 
@@ -159,6 +170,9 @@
   <script src = "./lib/nprogress/nprogress.js"></script>
   <script src ="./js/common.js"></script>
   <script src="./js/isLogin.js"></script>
+  <script src = "./js/second.js"></script>
+  <script src = "./lib//bootstrap-paginator/bootstrap-paginator.js"></script>
+  <script src="./lib/artTemplate/template-web.js"></script>
   
 </body>
 </html>

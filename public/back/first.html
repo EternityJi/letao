@@ -68,7 +68,7 @@
        
  <div class="add_category">
     <!-- Button trigger modal -->
-    <button class="btn btn-default mb_20" data-toggle="modal" data-target="#myModal">
+    <button class="btn btn-default mb_20 btn_add" >
      添加按钮
     </button>
       <!-- 模态框-->  
@@ -80,11 +80,15 @@
               <h4 class="modal-title" id="myModalLabel">添加分类</h4>
             </div>
             <div class="modal-body">
-              <input type="text" class="form-control" placeholder="请输入一级分类" name="categoryName" data-bv-field="categoryName">
+                <form class= "form">
+                    <div class="form-group">
+                      <input type="text" class="form-control"  placeholder="请输入一级分类" name="categoryName">
+                    </div>
+                </form>
             </div>
             <div class="modal-footer">
-              <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
-              <button type="button" class="btn btn-primary">添加</button>
+              <button type="button" class="btn btn-default btn_cancel" data-dismiss="modal">取消</button>
+              <button type="button" class="btn btn-primary btnAdd">添加</button>
             </div>
           </div>
         </div>
@@ -126,10 +130,13 @@
                </tr>
              </tbody>
       </table>
-</div>
-
-
-      </div>
+         <!-- 分页dom结构 -->
+         <div class="text-right">
+            <ul class="pagination">
+            </ul>
+          </div>
+     </div>
+ </div>
      
 
  </div>
@@ -161,8 +168,13 @@
     </div><!-- /.modal-dialog -->
   </div><!-- /.modal -->
  
- <script type="text/html" id = "tmp">
-
+ <script type="text/html" id="firstmp">
+   {{each rows v i}}
+   <tr>
+      <td>{{ (page-1)*size + i+1 }}</td>
+      <td>{{v.categoryName}}</td>
+   </tr>
+   {{/each}}
 </script>
   <script src="./lib/jquery/jquery.min.js"></script>
   <script src="./lib/bootstrap/js/bootstrap.js"></script>
@@ -171,6 +183,8 @@
   <script src ="./js/common.js"></script>
   <script src="./js/isLogin.js"></script>
   <script src="./js/first.js"></script>
+  <script src = "./lib//bootstrap-paginator/bootstrap-paginator.js"></script>
+  <script src="./lib/artTemplate/template-web.js"></script>
 
   
 </body>

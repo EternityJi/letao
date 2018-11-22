@@ -87,7 +87,7 @@ $(function() {
   //    如果通过校验, 默认会进行提交, 需要阻止, 通过 ajax 进行提交
 
   // (使用form="form", 通过了校验, 也不会提交了, 可以省去 e.preventDefault() )
-
+     
   $('#form').on("success.form.bv", function( e ) {
     e.preventDefault();
 

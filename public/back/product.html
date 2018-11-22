@@ -62,6 +62,61 @@
           <li><a href="index.html">管理系统</a></li>
           <li class="active">首页</li>
         </ol>
+     <!--添加商品  模态框  -->
+     <div class="add_category">
+        <!-- Button trigger modal -->
+        <button class="btn btn-default mb_20 btn_add" >
+          添加商品
+        </button>
+          <!-- 模态框-->  
+          <div class="modal fade" id="myModal" tabindex="-1">
+            <div class="modal-dialog modal-sm" >
+              <div class="modal-content">
+                <form id="form">
+                <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span></button>
+                  <h4 class="modal-title" id="myModalLabel">添加分类</h4>
+                </div>
+                <div class="modal-body">
+                        <div class="form-group">
+                          <input type="text" class="form-control categoryContent"  placeholder="请输入一级分类" name="categoryName">
+                        </div>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-default btn_cancel" data-dismiss="modal">取消</button>
+                  <button type="submit" class="btn btn-primary btnAdd">添加</button>
+                </div>
+              </form>
+              </div>
+            </div>
+          </div>
+    
+          <table class="table table-bordered table-hover">
+                 <thead>
+                     <th>序号</th>
+                     <th>商品名称</th>
+                     <th>商品描述</th>
+                     <th>商品库存</th>
+                     <th>商品尺寸</th>
+                     <th>商品状态</th>
+                 </thead>
+                 <tbody>
+                   <tr>
+                      <td>1</td>
+                      <td>6</td>
+                   </tr>
+      
+                 </tbody>
+          </table>
+             <!-- 分页dom结构 -->
+             <div class="text-right">
+                <ul class="pagination">
+                </ul>
+             </div>
+    
+       </div>
+
+
       </div>
     
  </div>

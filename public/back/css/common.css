@@ -107,11 +107,15 @@ a:visited{
 }
 /* 第一,二级列表样式 */
 .lt_sides .nav .child{
-    padding-left: 20px;
+  
     display: none;
 }
 .lt_sides .nav .child a{
     list-style: none;
+    padding-left: 60px;
+}
+.lt_sides .nav .child.current{
+  display: block;
 }
 
 

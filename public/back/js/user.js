@@ -4,6 +4,9 @@ $(function(){
   //当前页
   var currentPage = 1;
   var pageSize = 5;
+
+  var id;
+  var isDelete;
   //1.一进入页面就进行渲染
   render();
 
@@ -44,28 +47,50 @@ function render(){
       });
     }
    })
-   
 }
-   render();
+  
   // 2.更新用户状态update-user
   // 用事件委托   给操作按钮注册事件
   $('.main tbody').on("click",".btn",function(){
        //弹出模态框
     $('#disableModal').modal("show");
-    
-        // 用户 id
-        console.log($(this).parent());
-        
-        // var $id = $(this).parent().parent().data("dataId");
-    //  console.log($id);
-     
+        // 用户的当前id
+        //因为要在下面用  所以写成全局的·
+       id=$(this).parent().data("id");
+        // console.log($(this).parent().data("id"));
+       //isDelete 根据isDelete 来判断状态  根据类名来判断
+       isDelete = $(this).hasClass("btn-danger") ? 0 : 1;
+      //  console.log(isDelete);
+      //  console.log(id);
+       
   })
      //点击确定按钮,发送请求  修改启用 禁用
-
-     $.ajax({
-            
+  $(".submitBtn").click(function(){
+    // console.log(id);
+    // console.log(isDelete);
+    $.ajax({
+      type: "post",
+      url: "/user/updateUser",
+      data: {
+        id: id, // 用户id
+        isDelete: isDelete // 将用户改成什么状态, 1启用, 0禁用
+      },
+      // dataType: "json",
+      success: function( info ) {
+        console.log( info )
+        if ( info.success ) {
+          // 关闭模态框
+          $('#disableModal').modal("hide");  // show hide
+          // 重新渲染页面
+          render();
+        }
+      }
     })
 
+
+
+  })
+   
  
  
 })

@@ -1,0 +1,15 @@
+<form>
+   <div class="form-group">//必须有这些类名  不然后面校验会出错 
+      <input type = "text"  class = "form-control">
+   </div>  
+</form>
+
+
+多文件上传
+利用隐藏域 进行表单提交
+隐藏域  进行校验时   需要手动修改状态 
+调用   val()方法 修改无效  必须手动修改
+
+手动添加   直接在实现功能的后面 修改 
+
+h5 

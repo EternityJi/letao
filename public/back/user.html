@@ -180,9 +180,9 @@
       <td>{{v.isDelete === 1?"正常": "已禁用"}}</td>
       <td data-id={{v.id}}>
       {{if v.isDelete === 1 }}
-      <button class="btn btn-success">禁用</button>
-      {{else }}
-      <button class="btn btn-danger">启用</button>
+      <button class="btn btn-danger">禁用</button>
+      {{ else }}
+      <button class="btn btn-success">启用</button>
       {{/if}}
     </td>
     </tr>

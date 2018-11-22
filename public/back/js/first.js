@@ -54,6 +54,7 @@ $(function(){
                  console.log(info);
                  if(info.success){
                     console.log("添加分类成功");
+                    // 要渲染第一页 
                  }
                 
                }

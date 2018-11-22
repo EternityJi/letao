@@ -86,6 +86,9 @@ $(function(){
                        //重新渲染当前页  从第一页开始渲染
                        currentPage =1;
                        render();
+
+                       //内容和状态都要重置
+                       $("#form").data("bootstrapValidator").resetForm(true);
                   }
              }
         })

@@ -70,6 +70,7 @@ $(function(){
           $(".btninfo").text(txt);
           categoryId = $(this).data("id");
           $('[name="categoryId"]').val(categoryId);
+          $("#form").data("bootstrapValidator").updateStatus ("categoryId","VALID");
      })
  
     //4.图片上传  用插件
@@ -83,32 +84,15 @@ $(function(){
         console.log(picUrl);
         $(".imgbox img").attr("src", picUrl);
         $('[name="brandLogo"]').val(picUrl)
-        
+        // 隐藏域的状态要手动重置
+        $("#form").data("bootstrapValidator").updateStatus ("brandLogo","VALID");
         
       }
 });
-   //5.表单内容上传
-  
-   
-   $(".btnAdd").click(function(){
-    // console.log($("#form").serialize());
-    $('#myModal').modal('hide');
-        $.ajax({
-          url:"/category/addSecondCategory",
-          type:"post",
-          dataType:"json",
-          data:$("#form").serialize(),
-          success:function(info){
-             console.log(info);
-
-             render();
-          }  
-        })
-        
-   })
-    // //3.表单校验功能
+    //3.表单校验功能
     $("#form").bootstrapValidator({
-    //       //1.指定图标  默认是bootstrap风格
+          excluded:[],//让隐藏域起作用
+         //1.指定图标  默认是bootstrap风格
           feedbackIcons:{
              valid:'glyphicon glyphicon-heart',//有效的图标
              invalid: ' glyphicon glyphicon-minus',//无效的图标
@@ -116,50 +100,62 @@ $(function(){
           },
           //指定校验字段
           fields:{
-            categoryName:{
+            categoryId:{
+              //校验规则
+                validators:{
+                  //不能为空
+                  notEmpty: {
+                    message: "请选择一级分类"
+                  }
+
+                }
+            },
+            brandName:{
               //校验规则
                 validators:{
                   //不能为空
                   notEmpty: {
                     message: '二级分类不能为空'
-                  },
+                  }
+
+                }
+            },
+            brandLogo:{
+              //校验规则
+                validators:{
+                  //不能为空
+                  notEmpty: {
+                    message: '图片不能为空'
+                  }
 
                 }
             }
           }
     });
-
-    // add-second-category 添加二级分类
-
-    //注册表单校验成功事件   阻止默认的表单提交  通过ajax提交
-    $("#form").on("success.form.bv",function(e){   
-    //       //阻止默认的提交
+   //注册表单校验成功事件   阻止默认的表单提交  通过ajax提交
+   $("#form").on("success.form.bv",function(e){
+        //阻止默认提交
         e.preventDefault();
-    //     //通过ajax提交
-        // $.ajax({
-        //      type:"post",
-        //      url:"/category/addTopCategory",
-        //      data:$("#form").serialize(),
-        //      dataType:"json",
-        //      success:function(info){
-        //           console.log(info);
-        //           if(info.success){
-        //                //添加成功
-        //                //关闭模态框
-        //                $("#myModal").modal("hide");
-        //                //重新渲染当前页  从第一页开始渲染
-        //                currentPage =1;
-        //                render();
+        //通过ajax提交
+        $.ajax({
+           type:"post",
+           url:"/category/addSecondCategory",
+           data:$("#form").serialize(),
+           dataType:"json",
+           success:function(info){
+               console.log(info);
+               if(info.success){
+                   $("#myModal").modal("hide");
+                   //重新渲染当前页面
+                   currentPage = 1;
+                   render();
+                   //内容和状态都要重置
+                   $("#form").data('bootstrapValidator').resetForm(true);
+               }
+           }
+        })
+   })
+   
 
-        //                //内容和状态都要重置
-        //                $("#form").data("bootstrapValidator").resetForm(true);
-        //           }
-        //      }
-        // })
-
-        
-
-    })
-    
 
 })

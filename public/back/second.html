@@ -79,9 +79,36 @@
                       <h4 class="modal-title" id="myModalLabel">添加分类</h4>
                     </div>
                     <div class="modal-body">
-                            <div class="form-group">
-                              <input type="text" class="form-control categoryContent"  placeholder="请输入一级分类" name="categoryName">
-                            </div>
+                        <!--第一个表单 categoryId 所属分类 -->
+                        <div class="form-group">
+                            <div class="dropdown">
+                                <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">
+                                 请选择一级分类
+                                  <span class="caret"></span>
+                                </button>
+                                <ul class="dropdown-menu">
+                                  <li><a href="#">Action</a></li>
+                                  <li><a href="#">Another action</a></li>
+                                  <li><a href="#">Something else here</a></li>
+                                  <li><a href="#">Separated link</a></li>
+                                </ul>
+                              </div>
+
+                        </div>
+                        <!-- 第二个表单 brandName 品牌名称-->
+                        <div class="form-group">
+                          <input type="text" class="form-control categoryContent"  placeholder="请输入一级分类" name="brandName">
+                        </div>
+                        <!-- 第三个表单上传图片-->
+                        <div class="form-group">
+                            <button class="btn btn-default">上传图片</button>
+                            <input type="file" id ="fileupload">
+                        </div>
+                        <!-- 图片地址 brandLogo-->
+                        <div class="form-group">
+                            <img width="100px" src="./images/timg (1).jpg">
+                            <input type="hidden" name="brandLogo">
+                        </div>
                     </div>
                     <div class="modal-footer">
                       <button type="button" class="btn btn-default btn_cancel" data-dismiss="modal">取消</button>

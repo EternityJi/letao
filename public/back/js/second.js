@@ -66,6 +66,9 @@ $(function(){
             }
           }
     });
+
+    // add-second-category 添加二级分类
+    
     //注册表单校验成功事件   阻止默认的表单提交  通过ajax提交
     $("#form").on("success.form.bv",function(e){   
     //       //阻止默认的提交

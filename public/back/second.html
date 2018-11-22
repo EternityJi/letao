@@ -82,33 +82,38 @@
                         <!--第一个表单 categoryId 所属分类 -->
                         <div class="form-group">
                             <div class="dropdown">
-                                <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">
+                                <button class="btn btn-default dropdown-toggle btninfo" type="button" data-toggle="dropdown">
                                  请选择一级分类
                                   <span class="caret"></span>
                                 </button>
                                 <ul class="dropdown-menu">
-                                  <li><a href="#">Action</a></li>
-                                  <li><a href="#">Another action</a></li>
-                                  <li><a href="#">Something else here</a></li>
-                                  <li><a href="#">Separated link</a></li>
+                                 <!-- 挖个坑 -->
                                 </ul>
                               </div>
 
+                              <input type="hidden" name="categoryId">
+                              <input class="hot" type="hidden" name="hot" value="1">
+                       
                         </div>
                         <!-- 第二个表单 brandName 品牌名称-->
+                        
+          <!-- 每行外层要套一个 form-group, 如果不套, 后面表单校验插件会报错  -->
                         <div class="form-group">
-                          <input type="text" class="form-control categoryContent"  placeholder="请输入一级分类" name="brandName">
+                          <input type="text" class="form-control categoryContent"  placeholder="请输入二级分类" name="brandName">
                         </div>
+
                         <!-- 第三个表单上传图片-->
                         <div class="form-group">
-                            <button class="btn btn-default">上传图片</button>
-                            <input type="file" id ="fileupload">
+                           <label class="btn btn-default" for="fileupload">上传图片</label>
+                            <!-- <button class="btn btn-default"></button> -->
+                            <input type="file" id="fileupload" name="pic1" data-url="/category/addSecondCategoryPic" style="display: none;">
                         </div>
                         <!-- 图片地址 brandLogo-->
-                        <div class="form-group">
+                        <div class="form-group imgbox">
                             <img width="100px" src="./images/timg (1).jpg">
                             <input type="hidden" name="brandLogo">
                         </div>
+
                     </div>
                     <div class="modal-footer">
                       <button type="button" class="btn btn-default btn_cancel" data-dismiss="modal">取消</button>
@@ -134,7 +139,6 @@
                           <td>6</td>
                           <td><img src=""></td>
                        </tr>
-          
                      </tbody>
               </table>
                  <!-- 分页dom结构 -->
@@ -151,17 +155,24 @@
  </div>
  </div>
 <!-- 模板引擎渲染页面 -->
-<script type="text/html" id = "secondtpl">
+<!-- 表格渲染 -->
+<script type="text/html" id="secondtpl">
   {{each rows v i}}
   <tr>
       <td>{{ (page-1)*size + i+1 }}</td>
       <td>{{ v.categoryName}}</td>
-      <td>{{v.brandName}}</td>
-      <td><img style="height: 50px;" src="{{ v.brandLogo }}"></td>
+      <td data-id = {{v.id}}>{{v.brandName}}</td>
+      <td><img style="height:50px;" src="{{ v.brandLogo }}"></td>
    </tr>
   {{/each}}
 </script>
 
+<!-- 下拉菜单渲染 -->
+<script type="text/html" id="dropdowntpl">
+  {{each rows v i}}
+  <li><a  data-id = {{v.id}} href="#">{{v.categoryName}}</a></li>
+  {{/each}}
+</script>
     
 
  <!-- 模态框 -->
@@ -200,6 +211,13 @@
   <script src = "./js/second.js"></script>
   <script src = "./lib//bootstrap-paginator/bootstrap-paginator.js"></script>
   <script src="./lib/artTemplate/template-web.js"></script>
+  <!-- 文件上传插件 -->
+  <!-- jquery ui小部件，上传插件依赖了jquery ui的小部件 -->
+  <script src="./lib/jquery-fileupload/jquery.ui.widget.js"></script>
+  <!-- 如果上传图片需要跨域，那么需要引入这个js文件，如果不跨域，则不需要引入 -->
+  <script src="./lib/jquery-fileupload/jquery.iframe-transport.js"></script>
+  <!-- jquery上传插件 -->
+  <script src="./lib/jquery-fileupload/jquery.fileupload.js"></script>
   
 </body>
 </html>

@@ -38,28 +38,61 @@ $(function(){
       })
   }
 
-    // 添加分类
+    // 2.添加分类
     // 点击添加分类按钮  发送ajax
     $(".btn_add").click(function(){
       $('#myModal').modal('show')
     })
-    $(".btnAdd").click(function(){
-      $('#logoutModal').modal('hide');
-         //add-top-category
-           $.ajax({
-               url:"/category/addTopCategory",
-               type:"post",
-               data:$(".form").serialize,
-               success:function(info){
-                 console.log(info);
-                 if(info.success){
-                    console.log("添加分类成功");
-                    // 要渲染第一页 
-                 }
-                
-               }
-             })
+
+    //3.表单校验功能
+    $("#form").bootstrapValidator({
+          //1.指定图标  默认是bootstrap风格
+          feedbackIcons:{
+             valid:'glyphicon glyphicon-heart',//有效的图标
+             invalid: ' glyphicon glyphicon-minus',//无效的图标
+             validating:'glyphicon glyphicon-refresh'//校验中
+          },
+          //指定校验字段
+          fields:{
+            categoryName:{
+              //校验规则
+                validators:{
+                  //不能为空
+                  notEmpty: {
+                    message: '一级分类不能为空'
+                  },
+
+                }
+            }
+          }
+
+    });
+    //注册表单校验成功事件   阻止默认的表单提交  通过ajax提交
+    $("#form").on("success.form.bv",function(e){   
+          //阻止默认的提交
+        e.preventDefault();
+        //通过ajax提交
+        $.ajax({
+             type:"post",
+             url:"/category/addTopCategory",
+             data:$("#form").serialize(),
+             dataType:"json",
+             success:function(info){
+                  console.log(info);
+                  if(info.success){
+                       //添加成功
+                       //关闭模态框
+                       $("#myModal").modal("hide");
+                       //重新渲染当前页  从第一页开始渲染
+                       currentPage =1;
+                       render();
+                  }
+             }
+        })
+
+        
 
     })
-  
+    
+
 })

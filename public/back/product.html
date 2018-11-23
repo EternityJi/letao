@@ -5,10 +5,14 @@
   <meta name="viewport"
         content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <!-- bootstrap样式 -->
   <link rel="stylesheet" href="./lib/bootstrap/css/bootstrap.css">
   <!-- <link rel="stylesheet" href="./css/index.css"> -->
+  <!-- 表单校验样式 依赖于bootstrap -->
   <link rel="stylesheet" href="./lib/bootstrap-validator/css/bootstrapValidator.css"> 
+  <!-- 公共样式 -->
   <link rel="stylesheet" href="./css/common.css">
+  <!-- 商品管理 -->
   <link rel="stylesheet" href="./css/product.css">
   <!-- 引入进度条插件css -->
   <link rel='stylesheet' href='./lib/nprogress/nprogress.css'/>
@@ -76,20 +80,21 @@
                   <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span></button>
                   <h4 class="modal-title" id="myModalLabel">添加分类</h4>
                 </div>
+               
                 <div class="modal-body">
-                    <div class="form-group">
-                        <div class="dropdown">
-                            <button class="btn btn-default dropdown-toggle btninfo" type="button" data-toggle="dropdown">
-                             请选择二级分类
-                              <span class="caret"></span>
-                            </button>
-                            <ul class="dropdown-menu">
-                             <!-- 挖个坑 -->
-                            </ul>
-                          </div>
-                          <input type="hidden" name="brandId">
-                    </div>
-
+                    　
+                        <div class="form-group">
+                            <div class="dropdown dropdownText">
+                                <button class="btn btn-default dropdown-toggle btninfo" type="button" data-toggle="dropdown">
+                                请选择二级分类
+                                  <span class="caret"></span>
+                                </button>
+                                <ul class="dropdown-menu">
+                                <!-- 挖个坑 -->
+                                </ul>
+                              </div>
+                              <input class="" type="hidden" name="brandId">
+                        </div>
                         <div class="form-group">
                           <input type="text" class="form-control categoryContent"  placeholder="请输入商品名称" name="proName">
                         </div>
@@ -99,7 +104,6 @@
                         <div class="form-group">
                           <textarea class="form-control" rows="3" name="num" placeholder="请输入商品库存" data-bv-field="proDesc"></textarea>
                         </div>
-                        
                         <div class="form-group">
                           <input type="text" class="form-control categoryContent"  placeholder="请输入商品尺码" name="size">
                         </div>
@@ -112,10 +116,20 @@
                         <!-- 上传图片 -->
                         <div class="form-group">
                             <label class="btn btn-default" for="fileupload">上传图片</label>
-                            <input type="file" class="fileupload" id ="fileupload" name="picName1" data-url="/product/addProduct" style="display: none">
-                        </div>
-
-                </div>
+                            <!-- 注意:
+                                    1. 指定name用于让后台获取图片, 所以不能乱写
+                                    2. 指定data-url, 指定接口地址
+                                    3. multiple 用于多文件上传
+                            -->
+                            <input type="file" multiple name="pic1" data-url="/product/addProductPic" id="fileupload" style="display: none;">
+                          </div>
+                          <div class="form-group" id="imgBox">
+                
+                            <!-- 作用: 标记当前图片有没有上传满三张 -->
+                            <input type="hidden" name="picStatus">
+                          </div>
+                  </div>
+            
                 <div class="modal-footer">
                   <button type="button" class="btn btn-default btn_cancel" data-dismiss="modal">取消</button>
                   <button type="submit" class="btn btn-primary btnAdd">添加</button>
@@ -161,7 +175,25 @@
      动态的模态框  很关键的两个按钮 
      data-toggle="modal" data-target="#myModal"
  -->
- <!-- 外层是蒙层 -->
+ <!-- 修改上架下架信息 确认模态框 -->
+ <div class="modal fade" tabindex="-1" id="updateModal">
+    <div class="modal-dialog modal-sm" >
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title">温馨提示</h4>
+        </div>
+        <div class="modal-body">
+          <p><i class="glyphicon glyphicon-info-sign"></i>您确定要执行此操作码？</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+          <button type="button" class="btn btn-primary submitBtn">确定</button>
+        </div>
+      </div>
+    </div>
+  </div>
+ <!-- 登录退出模态框 外层是蒙层 -->
  <div class="modal fade" tabindex="-1" id="logoutModal">
     <div class="modal-dialog modal-sm" >
       <div class="modal-content">
@@ -176,14 +208,14 @@
           <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
           <button type="button" class="btn btn-primary logoutBtn">退出</button>
         </div>
-      </div><!-- /.modal-content -->
-    </div><!-- /.modal-dialog -->
-  </div><!-- /.modal -->
+      </div>
+    </div>
+  </div>
  
  <script type="text/html" id="productptl">
    {{each rows v i }}
    <tr>
-    <td>{{ v.id }}</td>
+    <td>{{(page -1)*size+i+1 }}</td>
     <td>{{ v.proName }}</td>
     <td>{{ v.proDesc }}</td>
     <td>{{ v.num }}</td>
@@ -209,15 +241,23 @@
   {{/each}}
 </script>
 
-
+  <!-- jquery -->
   <script src="./lib/jquery/jquery.min.js"></script>
+  <!-- bootstrap框架 -->
   <script src="./lib/bootstrap/js/bootstrap.js"></script>
+  <!-- 表单校验插件 -->
   <script src="./lib/bootstrap-validator/js/bootstrapValidator.min.js"></script>
+  <!-- 进度条显示插件 -->
   <script src = "./lib/nprogress/nprogress.js"></script>
+  <!-- 公共部分js头部和侧边栏 -->
   <script src ="./js/common.js"></script>
+  <!-- 登录拦截功能 -->
   <script src="./js/isLogin.js"></script>
+  <!-- 商品管理 -->
   <script src = "./js/product.js"></script>
+  <!-- 分页插件 -->
   <script src = "./lib/bootstrap-paginator/bootstrap-paginator.js"></script>
+  <!-- 模版引擎 -->
   <script src="./lib/artTemplate/template-web.js"></script>
   <!-- 文件上传插件 -->
   <!-- jquery ui小部件，上传插件依赖了jquery ui的小部件 -->

@@ -6,11 +6,10 @@
         content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <link rel="stylesheet" href="./lib/bootstrap/css/bootstrap.css">
- 
   <!-- <link rel="stylesheet" href="./css/index.css"> -->
   <link rel="stylesheet" href="./lib/bootstrap-validator/css/bootstrapValidator.css"> 
   <link rel="stylesheet" href="./css/common.css">
-  <link rel="stylesheet" href="./css/index.css">
+  <link rel="stylesheet" href="./css/product.css">
   <!-- 引入进度条插件css -->
   <link rel='stylesheet' href='./lib/nprogress/nprogress.css'/>
   <title>Document</title>
@@ -70,7 +69,7 @@
         </button>
           <!-- 模态框-->  
           <div class="modal fade" id="myModal" tabindex="-1">
-            <div class="modal-dialog modal-sm" >
+            <div class="modal-dialog modal-md" >
               <div class="modal-content">
                 <form id="form">
                 <div class="modal-header">
@@ -78,9 +77,44 @@
                   <h4 class="modal-title" id="myModalLabel">添加分类</h4>
                 </div>
                 <div class="modal-body">
+                    <div class="form-group">
+                        <div class="dropdown">
+                            <button class="btn btn-default dropdown-toggle btninfo" type="button" data-toggle="dropdown">
+                             请选择二级分类
+                              <span class="caret"></span>
+                            </button>
+                            <ul class="dropdown-menu">
+                             <!-- 挖个坑 -->
+                            </ul>
+                          </div>
+                          <input type="hidden" name="brandId">
+                    </div>
+
                         <div class="form-group">
-                          <input type="text" class="form-control categoryContent"  placeholder="请输入一级分类" name="categoryName">
+                          <input type="text" class="form-control categoryContent"  placeholder="请输入商品名称" name="proName">
                         </div>
+                        <div class="form-group">
+                          <input type="text" class="form-control categoryContent"  placeholder="请输入商品描述" name="proDesc">
+                        </div>
+                        <div class="form-group">
+                          <textarea class="form-control" rows="3" name="num" placeholder="请输入商品库存" data-bv-field="proDesc"></textarea>
+                        </div>
+                        
+                        <div class="form-group">
+                          <input type="text" class="form-control categoryContent"  placeholder="请输入商品尺码" name="size">
+                        </div>
+                        <div class="form-group">
+                          <input type="text" class="form-control categoryContent"  placeholder="请输入商品原价" name="oldPrice">
+                        </div>
+                        <div class="form-group">
+                            <input type="text" class="form-control categoryContent"  placeholder="请输入商品现价" name="price">
+                        </div>
+                        <!-- 上传图片 -->
+                        <div class="form-group">
+                            <label class="btn btn-default" for="fileupload">上传图片</label>
+                            <input type="file" class="fileupload" id ="fileupload" name="picName1" data-url="/product/addProduct" style="display: none">
+                        </div>
+
                 </div>
                 <div class="modal-footer">
                   <button type="button" class="btn btn-default btn_cancel" data-dismiss="modal">取消</button>
@@ -99,12 +133,10 @@
                      <th>商品库存</th>
                      <th>商品尺寸</th>
                      <th>商品状态</th>
+                     <th>操作</th>
                  </thead>
                  <tbody>
-                   <tr>
-                      <td>1</td>
-                      <td>6</td>
-                   </tr>
+                  <!-- 挖个坑 -->
       
                  </tbody>
           </table>
@@ -148,13 +180,53 @@
     </div><!-- /.modal-dialog -->
   </div><!-- /.modal -->
  
- 
+ <script type="text/html" id="productptl">
+   {{each rows v i }}
+   <tr>
+    <td>{{ v.id }}</td>
+    <td>{{ v.proName }}</td>
+    <td>{{ v.proDesc }}</td>
+    <td>{{ v.num }}</td>
+    <td>{{ v.size }}</td>
+    <td>{{ v.statu === 1 ? "已上架":"已下架"}}</td>
+    <td data-id={{v.id}}>
+      {{if v.statu === 1 }}
+      <button class="btn btn-danger">下架</button>
+      {{ else }}
+      <button class="btn btn-success">上架</button>
+      {{/if}}
+    </td>
+ </tr>
+   {{/each}}
+ </script>
+
+
+
+ <!-- 二级分类下拉框渲染 -->
+ <script type="text/html" id="dropdowntpl">
+  {{each rows v i}}
+  <li><a  data-id = {{v.id}} href="#">{{v.brandName}}</a></li>
+  {{/each}}
+</script>
+
+
   <script src="./lib/jquery/jquery.min.js"></script>
   <script src="./lib/bootstrap/js/bootstrap.js"></script>
   <script src="./lib/bootstrap-validator/js/bootstrapValidator.min.js"></script>
   <script src = "./lib/nprogress/nprogress.js"></script>
   <script src ="./js/common.js"></script>
   <script src="./js/isLogin.js"></script>
+  <script src = "./js/product.js"></script>
+  <script src = "./lib/bootstrap-paginator/bootstrap-paginator.js"></script>
+  <script src="./lib/artTemplate/template-web.js"></script>
+  <!-- 文件上传插件 -->
+  <!-- jquery ui小部件，上传插件依赖了jquery ui的小部件 -->
+  <script src="./lib/jquery-fileupload/jquery.ui.widget.js"></script>
+  <!-- 如果上传图片需要跨域，那么需要引入这个js文件，如果不跨域，则不需要引入 -->
+  <script src="./lib/jquery-fileupload/jquery.iframe-transport.js"></script>
+  <!-- jquery上传插件 -->
+  <script src="./lib/jquery-fileupload/jquery.fileupload.js"></script>
+  
   
 </body>
 </html>

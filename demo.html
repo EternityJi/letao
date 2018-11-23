@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<title>Document</title>
+</head>
+<body>
+  <!-- <input type="text" > -->
+  <input type="file" id="fileInp">
+
+</body>
+
+<script src="./jquery.min.js"></script>
+<script src="./moment/moment.js"></script>
+<script>  
+  // var date = new Date();
+  // var str = moment(date).format('YYYY-MM-DD HH:mm')
+  // $('[type = "text"]').val(str);
+//  console.log(str);
+// var inp = $("input");
+var fileInp = document.querySelector("#file");
+console.log(fileInp);
+
+// var inp =document.querySelector("input")
+// console.log(inp.value);
+
+ $('#fileInp').on('change',function(){
+      //1.获取选中的文件
+      //files  是一个伪数组 只是一个文件  不是一个地址
+      // 2.所以需要获取地址
+      var file = this.files[0];
+      // //可以直接获取文件路径的地址
+      // var url = URL.createObjectURL(file);
+      // // 3.将文件的地址给src
+      // $('#img').attr('src',url).show();
+
+      console.log(file);
+      
+   })
+
+
+</script>
+</html>

@@ -151,6 +151,10 @@ $(function(){
                    render();
                    //内容和状态都要重置
                    $("#form").data('bootstrapValidator').resetForm(true);
+                  //  重置下拉框内容(因为有隐藏域 所以需要重置)
+                  $(".btninfo").text("请选择一级分类");
+                  // 重置图片
+                  $(".imgbox img").attr("src","../images/li.jpg");
                }
            }
         })

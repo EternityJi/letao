@@ -256,6 +256,7 @@ $(function(){
                             $("#imgBox img").remove();
                             //重置数组  picArr
                             picArr = [];
+
                      }
                }
 

@@ -83,17 +83,16 @@
             <!-- 下拉菜单 请选择一级分类-->
           <div class="form-group">  
             <div class="dropdown dropdownText">
-                <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" >
+                <button class="btn btn-default dropdown-toggle" type="button" 
+                id="dropdownMenu1" data-toggle="dropdown" >
                     请选择一级分类
               <span class="caret"></span>
                 </button>
-                <ul class="dropdown-menu" >
-                  <li><a href="#">Action</a></li>
-                  <li><a href="#">Another action</a></li>
-                  <li><a href="#">Something else here</a></li>
-                  <li role="separator" class="divider"></li>
-                  <li><a href="#">Separated link</a></li>
-                </ul>
+                <!-- categoryName -->
+             
+               <ul class="dropdown-menu" >
+                    <!-- 挖个坑 -->
+               </ul>
             </div>
           </div>
             <!-- 输入框  请输入二级分类 -->
@@ -191,7 +190,15 @@
      <td><img style="width:80px;height:50px" src = "{{ v.brandLogo }}"></td>
    </tr>
   {{/each}}
-</script>
+
+  <!-- 一级下拉菜单渲染 -->
+  <script type ="text/html" id="dropdowntpl">
+      {{each rows v i}}
+     
+          <li><a href="#">{{ v.categoryName }}</a></li>
+    
+      {{/each}}
+  </script>
   <script src="./lib/jquery/jquery.min.js"></script>
   <script src="./lib/bootstrap/js/bootstrap.js"></script>
   <script src="./lib/bootstrap-validator/js/bootstrapValidator.min.js"></script>

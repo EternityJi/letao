@@ -28,9 +28,32 @@ $(function(){
                         currentPage = page;
                         render();
                       }
+
                     });
                     
               }
           })
      }
+
+    //  点击添加按钮 下拉菜单渲染
+    $(".btnAdd").click(function(){
+          $.ajax({
+            url:"/category/querySecondCategoryPaging",
+            type:"get",
+            // page pageSize 用的模拟的数据
+            data:{
+              page:1,
+              pageSize:100
+            },
+            success:function(info){
+                console.log(info);
+                var htmlStr=template("dropdowntpl",info);
+                $(".dropdown-menu").html(htmlStr);
+                
+            }
+        })
+       
+        
+    })
+  
 })

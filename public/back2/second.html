@@ -1,61 +1,62 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport"
-        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <link rel="stylesheet" href="./lib/bootstrap/css/bootstrap.css">
- 
+
   <!-- <link rel="stylesheet" href="./css/index.css"> -->
-  <link rel="stylesheet" href="./lib/bootstrap-validator/css/bootstrapValidator.css"> 
+  <link rel="stylesheet" href="./lib/bootstrap-validator/css/bootstrapValidator.css">
   <link rel="stylesheet" href="./css/common.css">
   <link rel="stylesheet" href="./css/index.css">
   <link rel="stylesheet" href="./css/second.css">
   <!-- 引入进度条插件css -->
-  <link rel='stylesheet' href='./lib/nprogress/nprogress.css'/>
+  <link rel='stylesheet' href='./lib/nprogress/nprogress.css' />
   <title>Document</title>
 </head>
+
 <body>
- <!-- 左边侧边栏部分 -->
- <div class="lt_sides ">
-        <!-- 头部标题 -->
-        <div class="lt_title">
-            <a href="#">黑马30期</a>
-        </div>
-        <!--  头像-->
-        <div class="pic">
-            <a href="#"><img src ="./images/li.jpg"></a>
-            <p>超级管理员</p>
-        </div>
-        <!-- 导航栏 -->
-        <div class="nav">
-            <ul >
-              <li ><a  href="user.html"><i class="glyphicon glyphicon-user"></i><span>用户管理</span></a></li>
-              <li class="slide"><a href="javacript:;"><i class="glyphicon glyphicon-list"></i><span>分类管理</span></a>
-               <!-- 用于切换显示的二级列表 -->
-               <div class="child current">
-                   <a href="first.html">一级列表</a>
-                   <a class="current" href="second.html">二级列表</a>
-               </div>
-              </li>
-              <li><a href="product.html"><i class="glyphicon glyphicon-tags"></i><span>商品管理</span></a></li>
-            </ul>
-        </div>
- </div>
- <!-- 右边主体部分 -->
- <div class="ri_main">
-  <!-- 右边的头部 -->
-     <header>
-         <a  class="pull-left icon_menu" href="#"><i class="glyphicon glyphicon-align-justify"></i></a> 
-         <!-- 通过添加属性  使模态框显示隐藏 -->
-         <!-- 也可以通过js实现 -->
-         <!-- <a class="pull-right icon_logout " data-toggle="modal" data-target="#logoutModal" href="#"><i class="glyphicon glyphicon-log-out"></i></a>  -->
-          
-      <a class="pull-right icon_logout " href="#"><i class="glyphicon glyphicon-log-out"></i></a>  
-     </header>
-  <!-- 内容部分 -->
-  <div class="ri_content">
+  <!-- 左边侧边栏部分 -->
+  <div class="lt_sides ">
+    <!-- 头部标题 -->
+    <div class="lt_title">
+      <a href="#">黑马30期</a>
+    </div>
+    <!--  头像-->
+    <div class="pic">
+      <a href="#"><img src="./images/li.jpg"></a>
+      <p>超级管理员</p>
+    </div>
+    <!-- 导航栏 -->
+    <div class="nav">
+      <ul>
+        <li><a href="user.html"><i class="glyphicon glyphicon-user"></i><span>用户管理</span></a></li>
+        <li class="slide"><a href="javacript:;"><i class="glyphicon glyphicon-list"></i><span>分类管理</span></a>
+          <!-- 用于切换显示的二级列表 -->
+          <div class="child current">
+            <a href="first.html">一级列表</a>
+            <a class="current" href="second.html">二级列表</a>
+          </div>
+        </li>
+        <li><a href="product.html"><i class="glyphicon glyphicon-tags"></i><span>商品管理</span></a></li>
+      </ul>
+    </div>
+  </div>
+  <!-- 右边主体部分 -->
+  <div class="ri_main">
+    <!-- 右边的头部 -->
+    <header>
+      <a class="pull-left icon_menu" href="#"><i class="glyphicon glyphicon-align-justify"></i></a>
+      <!-- 通过添加属性  使模态框显示隐藏 -->
+      <!-- 也可以通过js实现 -->
+      <!-- <a class="pull-right icon_logout " data-toggle="modal" data-target="#logoutModal" href="#"><i class="glyphicon glyphicon-log-out"></i></a>  -->
+
+      <a class="pull-right icon_logout " href="#"><i class="glyphicon glyphicon-log-out"></i></a>
+    </header>
+    <!-- 内容部分 -->
+    <div class="ri_content">
       <!-- 流式布局容器 container-fluid 特征: 宽度100%,  默认有左右的 15px padding -->
       <div class="container-fluid">
         <!-- 面包屑导航  即是链接导航  路径导航 -->
@@ -63,103 +64,104 @@
           <li><a href="index.html">管理系统</a></li>
           <li class="active">首页</li>
         </ol>
-      <!-- 添加按钮模态框 -->
-      <!-- Button trigger modal -->
-  <button  class="btn btn-default btnAdd" data-toggle="modal" data-target="#myModal">
-   添加分类
-  </button>
-  
+        <!-- 添加按钮模态框 -->
+        <!-- Button trigger modal -->
+        <button class="btn btn-default btnAdd">
+          添加分类
+        </button>
+
+
+
+        <!-- table部分 -->
+        <!-- 用bootstrap框架写 -->
+        <table class="table table-bordered table-hover">
+          <thead>
+            <th>序号</th>
+            <th>一级分类名称</th>
+            <th>二级分类名称</th>
+            <th>二级分类LOGO</th>
+          </thead>
+          <tbody>
+            <!-- 挖个坑 -->
+          </tbody>
+        </table>
+
+        <!-- 用于分页的dom结构 -->
+        <div class="text-right">
+          <ul class="pagintor"></ul>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+
+
+
+
+
+  <!-- 模态框 -->
   <!-- Modal -->
-  <div class="modal fade" id="myModal" tabindex="-1"  >
+  <div class="modal fade" id="myModal" tabindex="-1">
     <div class="modal-dialog modal-sm" role="document">
       <!-- 将模态框写在for里 用于提交表单 向后台传输数据 -->
-    <form id = "form">
+
       <div class="modal-content">
         <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal" ><span aria-hidden="true">&times;</span></button>
+          <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span></button>
           <h4 class="modal-title" id="myModalLabel">添加分类</h4>
         </div>
         <div class="modal-body">
-            <!-- 下拉菜单 请选择一级分类-->
-          <div class="form-group">  
-            <div class="dropdown dropdownText">
-                <button class="btn btn-default dropdown-toggle" type="button" 
-                id="dropdownMenu1" data-toggle="dropdown" >
-                    请选择一级分类
-              <span class="caret"></span>
+          <!-- 下拉菜单 请选择一级分类-->
+          <form id="form">
+            <div class="form-group">
+              <div class="dropdown">
+                <button class="btn btn-default dropdown-toggle dropdownBtn" type="button" id="dropdownMenu1"
+                  data-toggle="dropdown">
+                  请选择一级分类
                 </button>
-                <!-- categoryName -->
-             
-               <ul class="dropdown-menu" >
-                    <!-- 挖个坑 -->
-               </ul>
+                <ul class="dropdown-menu dropdown1">
+                  <!-- 挖个坑 -->
+                </ul>
+              </div>
+              <input type="hidden" name="categoryId">
+              <input type="hidden" name="hot" value="1">
             </div>
-          </div>
             <!-- 输入框  请输入二级分类 -->
             <div class="form-group">
-                <input type="text" class="form-control" placeholder="请输入二级分类">
-           </div>
+              <input type="text" class="form-control" name="brandName" placeholder="请输入二级分类">
+            </div>
             <!-- 上传图片 -->
             <div class="form-group">
-                <label for="exampleInputFile" class="btn btn-default">上传图片</label>
-                <input type="file" id="exampleInputFile" style="display:none">
-                
-                <!-- 显示图片 -->
-                <div class="imgBox" style="margin-top:20px">
-                    <img   width ="100px" src="./images/li.jpg">
-                </div>
-                
-          </div>
-          
-            
+              <label for="fileupload" class="btn btn-default">上传图片</label>
+              <!-- name指定图片上传时的name属性 -->
+              <!-- data-url指定图片上传时的接口地址 -->
+              <!-- multiple指定多文件上传 -->
+              <input id="fileupload" type="file" name="pic1" data-url="/category/addSecondCategoryPic" style="display:none">
+              <input type="hidden" name="brandLogo">
+              <!-- 显示图片 -->
+              <div class="imgBox" style="margin-top:20px">
+                <img width="100px" src="./images/li.jpg">
+              </div>
+            </div>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
           <button type="submit" class="btn btn-primary">添加</button>
         </div>
       </div>
-    </form>
+      </form>
     </div>
   </div>
-
-  <!-- table部分 -->
-  <!-- 用bootstrap框架写 -->
-    <table class="table table-bordered table-hover">
-        <thead>
-           <th>序号</th>
-           <th>一级分类名称</th>
-           <th>二级分类名称</th>
-           <th>二级分类LOGO</th>
-        </thead>
-        <tbody>
-        <!-- 挖个坑 -->
-        </tbody>
-    </table>
-
-    <!-- 用于分页的dom结构 -->
-   <div class="text-right">
-       <ul class="pagintor"></ul>
-   </div>   
-       
-</div>
-    
- </div>
- </div>
-
-
-
-
-
- <!-- 模态框 -->
- <!-- 
+  <!-- 
    bootstrap中
      如果粘贴的是静态的模态框  是看不到的
      动态的模态框  很关键的两个按钮 
      data-toggle="modal" data-target="#myModal"
  -->
- <!-- 外层是蒙层 -->
- <div class="modal fade" tabindex="-1" id="logoutModal">
-    <div class="modal-dialog modal-sm" >
+  <!-- 外层是蒙层 -->
+  <div class="modal fade" tabindex="-1" id="logoutModal">
+    <div class="modal-dialog modal-sm">
       <div class="modal-content">
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span></button>
@@ -175,14 +177,14 @@
       </div><!-- /.modal-content -->
     </div><!-- /.modal-dialog -->
   </div><!-- /.modal -->
- 
- 
+
+
 
 
   <!-- 模板引擎渲染页面 -->
-<!-- 表格渲染 -->
-<script type="text/html" id="secondtpl">
-  {{each rows v i }}
+  <!-- 表格渲染 -->
+  <script type="text/html" id="secondTpl">
+    {{each rows v i }}
    <tr>
      <td>{{i+1+(page -1)*size}}</td>
      <td>{{v.categoryName}}</td>
@@ -190,23 +192,20 @@
      <td><img style="width:80px;height:50px" src = "{{ v.brandLogo }}"></td>
    </tr>
   {{/each}}
-
+</script>
   <!-- 一级下拉菜单渲染 -->
-  <script type ="text/html" id="dropdowntpl">
-      {{each rows v i}}
-     
-          <li><a href="#">{{ v.categoryName }}</a></li>
-    
-      {{/each}}
+  <script type="text/html" id="dropdownTpl">
+    {{ each rows v i }}
+      <li><a href="#" data-id="{{ v.id}}">{{ v.categoryName }}</a></li>
+    {{ /each }}
   </script>
+
   <script src="./lib/jquery/jquery.min.js"></script>
   <script src="./lib/bootstrap/js/bootstrap.js"></script>
   <script src="./lib/bootstrap-validator/js/bootstrapValidator.min.js"></script>
-  <script src = "./lib/nprogress/nprogress.js"></script>
-  <script src ="./js/common.js"></script>
-  <script src="./js/isLogin.js"></script>
-  <script src="./js/second.js"></script>
-  <script src = "./lib/bootstrap-paginator/bootstrap-paginator.js"></script>
+  <script src="./lib/nprogress/nprogress.js"></script>
+
+  <script src="./lib/bootstrap-paginator/bootstrap-paginator.js"></script>
   <script src="./lib/artTemplate/template-web.js"></script>
   <!-- 文件上传插件 -->
   <!-- jquery ui小部件，上传插件依赖了jquery ui的小部件 -->
@@ -215,6 +214,10 @@
   <script src="./lib/jquery-fileupload/jquery.iframe-transport.js"></script>
   <!-- jquery上传插件 -->
   <script src="./lib/jquery-fileupload/jquery.fileupload.js"></script>
-  
+  <script src="./js/common.js"></script>
+  <script src="./js/isLogin.js"></script>
+  <script src="./js/second.js"></script>
+
 </body>
+
 </html>

@@ -132,13 +132,9 @@
            <th>二级分类名称</th>
            <th>二级分类LOGO</th>
         </thead>
-        <tr>
-          <td>1</td>
-          <td>男士馆</td>
-          <td>杨幂</td>
-          <td><img width="80px" height="50px" src = "./images/timg (1).jpg"></td>
-          
-        </tr>
+        <tbody>
+        <!-- 挖个坑 -->
+        </tbody>
     </table>
    
        
@@ -146,8 +142,9 @@
     
  </div>
  </div>
-<!-- 模板引擎渲染页面 -->
-<!-- 表格渲染 -->
+
+
+
 
 
  <!-- 模态框 -->
@@ -177,13 +174,27 @@
   </div><!-- /.modal -->
  
  
+
+
+  <!-- 模板引擎渲染页面 -->
+<!-- 表格渲染 -->
+<script type="text/html" id="secondtpl">
+  {{each rows v i }}
+   <tr>
+     <td>{{i+1+(page -1)*size}}</td>
+     <td>{{v.categoryName}}</td>
+     <td>{{v.brandName}}</td>
+     <td><img style="width:80px;height:50px" src = "{{ v.brandLogo }}"></td>
+   </tr>
+  {{/each}}
+</script>
   <script src="./lib/jquery/jquery.min.js"></script>
   <script src="./lib/bootstrap/js/bootstrap.js"></script>
   <script src="./lib/bootstrap-validator/js/bootstrapValidator.min.js"></script>
   <script src = "./lib/nprogress/nprogress.js"></script>
   <script src ="./js/common.js"></script>
   <script src="./js/isLogin.js"></script>
-  <!-- <script src = "./js/second.js"></script> -->
+  <script src="./js/second.js"></script>
   <script src = "./lib/bootstrap-paginator/bootstrap-paginator.js"></script>
   <script src="./lib/artTemplate/template-web.js"></script>
   <!-- 文件上传插件 -->

@@ -128,9 +128,10 @@ a:visited{
     /* background: pink; */
     transition:padding-left 1s;
 }
-.ri_main .hidemenu{
+.ri_main.hidemenu{
   padding-left: 0;
 }
+
 .ri_main header{
   width: 100%;
   height: 50px;

@@ -6,13 +6,13 @@
         content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <link rel="stylesheet" href="./lib/bootstrap/css/bootstrap.css">
- 
   <!-- <link rel="stylesheet" href="./css/index.css"> -->
   <link rel="stylesheet" href="./lib/bootstrap-validator/css/bootstrapValidator.css"> 
   <link rel="stylesheet" href="./css/common.css">
   <link rel="stylesheet" href="./css/index.css">
   <!-- 引入进度条插件css -->
   <link rel='stylesheet' href='./lib/nprogress/nprogress.css'/>
+  <link rel="stylesheet" href="./css/first.css">
   <title>Document</title>
 </head>
 <body>
@@ -25,16 +25,16 @@
         <!--  头像-->
         <div class="pic">
             <a href="#"><img src ="./images/li.jpg"></a>
-            <p>李嘉欣</p>
+            <p>超级管理员</p>
         </div>
         <!-- 导航栏 -->
         <div class="nav">
             <ul >
-              <li ><a class="current" href="user.html"><i class="glyphicon glyphicon-user"></i><span>用户管理</span></a></li>
+              <li ><a  href="user.html"><i class="glyphicon glyphicon-user"></i><span>用户管理</span></a></li>
               <li class="slide"><a href="javacript:;"><i class="glyphicon glyphicon-list"></i><span>分类管理</span></a>
                <!-- 用于切换显示的二级列表 -->
-               <div class="child">
-                   <a href="first.html">一级列表</a>
+               <div class="child current">
+                   <a class="current" href="first.html">一级列表</a>
                    <a href="second.html">二级列表</a>
                </div>
               </li>
@@ -60,14 +60,62 @@
         <!-- 面包屑导航  即是链接导航  路径导航 -->
         <ol class="breadcrumb">
           <li><a href="index.html">管理系统</a></li>
-          <li class="active">首页</li>
+          <li class="active">分类管理</li>
+          <li class="active">一级分类</li>
         </ol>
+ <!-- 添加分类 模态框-->
+       
+ <div class="add_category">
+    <!-- Button trigger modal -->
+    <button class="btn btn-default mb_20 btn_add" >
+     添加按钮
+    </button>
+      <!-- 模态框-->  
+      <div class="modal fade" id="myModal" tabindex="-1">
+        <div class="modal-dialog modal-sm" >
+          <div class="modal-content">
+            <form id="form">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span></button>
+              <h4 class="modal-title" id="myModalLabel">添加分类</h4>
+            </div>
+            <div class="modal-body">
+                    <div class="form-group">
+                      <input type="text" class="form-control categoryContent"  placeholder="请输入一级分类" name="categoryName">
+                    </div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default btn_cancel" data-dismiss="modal">取消</button>
+              <button type="submit" class="btn btn-primary btnAdd">添加</button>
+            </div>
+          </form>
+          </div>
+        </div>
       </div>
-      <!-- 两个图表, 要求要是有宽高的容器 -->
-      <div class="lt_content">
-          <div class="echarts_left pull-left"></div>
-          <div class="echarts_right pull-right"></div>
-      </div>
+
+      <table class="table table-bordered table-hover">
+             <thead>
+                 <th>序号</th>
+                 <th>一级分类名</th>
+             </thead>
+             <tbody>
+               <tr>
+                  <td>1</td>
+                  <td>6</td>
+               </tr>
+  
+             </tbody>
+      </table>
+         <!-- 分页dom结构 -->
+         <div class="text-right">
+            <ul class="pagination">
+            </ul>
+         </div>
+
+   </div>
+ </div>
+     
+
  </div>
  </div>
 
@@ -95,19 +143,26 @@
         </div>
       </div><!-- /.modal-content -->
     </div><!-- /.modal-dialog -->
-</div>
+  </div><!-- /.modal -->
  
- 
+ <script type="text/html" id="firstmp">
+   {{each rows v i}}
+   <tr>
+      <td>{{ (page-1)*size + i+1 }}</td>
+      <td>{{v.categoryName}}</td>
+   </tr>
+   {{/each}}
+</script>
   <script src="./lib/jquery/jquery.min.js"></script>
   <script src="./lib/bootstrap/js/bootstrap.js"></script>
   <script src="./lib/bootstrap-validator/js/bootstrapValidator.min.js"></script>
   <script src = "./lib/nprogress/nprogress.js"></script>
   <script src ="./js/common.js"></script>
-  <!-- echarts -->
-  <script src="./lib/echarts/echarts.min.js"></script>
-  <script src="./js/index.js"></script>
   <script src="./js/isLogin.js"></script>
-  
+  <script src="./js/first.js"></script>
+  <script src = "./lib/bootstrap-paginator/bootstrap-paginator.js"></script>
+  <script src="./lib/artTemplate/template-web.js"></script>
 
+  
 </body>
 </html>

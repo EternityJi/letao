@@ -1,0 +1,6 @@
+.echarts_left ,
+.echarts_right {
+    width: 48%;
+    height: 400px;
+    padding-left: 10px;
+}

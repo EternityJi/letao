@@ -10,7 +10,7 @@
 $(function(){
 
   //1.表单校验
-  $(".form").bootstrapValidator({
+  $("#form").bootstrapValidator({
   //2. 指定校验时的图标显示，默认是bootstrap风格
   feedbackIcons: {
     valid: 'glyphicon glyphicon-heart',
@@ -83,7 +83,7 @@ var $mes = $(".message");
 // var p  = document.querySelector(".message p");
 var $p = $(".message p")
 
-$(".form").on('success.form.bv', function (e) {
+$("#form").on('success.form.bv', function (e) {
     e.preventDefault();
     //使用ajax提交逻辑  
     $.ajax({
@@ -103,13 +103,13 @@ $(".form").on('success.form.bv', function (e) {
 
               //用插件中校验信息的方法
               //参数三  校验规则  根据前面写过的
-              $(".form").data('bootstrapValidator').updateStatus("username", 'INVALID',"callback")
+              $(form).data('bootstrapValidator').updateStatus("username", 'INVALID',"callback")
 
         }
         if(info.error == 1001){
           // $p.text(info.message);
           // $mes.stop(true).fadeIn(800).delay(1000).fadeOut(800);
-          $(".form").data('bootstrapValidator').updateStatus("password", 'INVALID',"callback")
+          $(form).data('bootstrapValidator').updateStatus("password", 'INVALID',"callback")
         }
      } 
   })
@@ -123,7 +123,7 @@ $('[type ="reset"]').click(function(){
    // 重置状态
     // resetForm 如果传 true  表示内容和状态都重置
     //           不传参,      只重置状态
-     $('.form').data("bootstrapValidator").resetForm(true);
+     $('#form').data("bootstrapValidator").resetForm();
 })
 })
 

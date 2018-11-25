@@ -1,3 +1,10 @@
+.lt_main{
+    position: relative;
+    background:#fff;
+    width: 100%;
+    height: 100%;
+  }
+
 ul,li{
   list-style: none;
 }
@@ -54,10 +61,36 @@ html,body{
     line-height: 45px;
     font-size: 20px;
     color: #fff;
-    
 }
 
 img{
     display: block;
     width: 100%;
 }
+/* 底部 */
+.lt_footer{
+    position: absolute;
+    bottom:0;
+    width: 100%;
+    height:55px;
+    background: #006699;
+    }
+    .lt_footer li{
+    float: left;
+    width: 25%;
+    height: 100%;
+    }
+    .lt_footer li a{
+      color: #fff;
+      display: block;
+      width: 100%;
+      height: 100%;
+      text-align: center;
+      padding-top: 8px;
+    }
+    .lt_footer li a.current{
+        color: orange;
+    }
+    .lt_footer p{
+      color: #fff;
+    }

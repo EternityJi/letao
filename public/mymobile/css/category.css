@@ -23,6 +23,11 @@
      border:1px solid #ccc;
      text-align: center;
      line-height: 50px; 
+     background: #ccc;
+}
+.lt_category_left li a.current{
+    background: #fff;
+    border-right: none;
 }
 /* 右侧部分 */
 .lt_category_right li {

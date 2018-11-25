@@ -21,7 +21,7 @@ html,body{
     width: 100%;
     max-width: 640px;
     min-width: 320px;
-    background: pink;
+    /* background: pink; */
     margin:0 auto;
     position: relative;
     padding-top:45px;
@@ -36,6 +36,9 @@ html,body{
      left:0;
      background:#006699;
      padding: 0 45px;
+}
+.lt_header a{
+    color: #fff;
 }
 .lt_header .left_icon,
 .lt_header .right_icon{

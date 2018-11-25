@@ -19,7 +19,7 @@
          <div class="lt_header">
             <div class="left_icon"><a href="index.html"><i class="fa fa-home"></i></a></div>
             <div class="mian">乐淘云淘</div>
-            <div class="right_icon"><i class="fa fa-search"></i></div>
+            <div class="right_icon"><a href="search.html"><i class="fa fa-search"></i></a></div>
          </div>
         <!-- 主体部分 -->
         <div class="lt_main">
@@ -29,39 +29,7 @@
                       <div class="mui-scroll-wrapper">
                         <div class="mui-scroll">
                                 <ul>
-                                  <li>
-                                    <a class="current" href="#">运动馆</a>
-                                  </li>
-                                  <li>
-                                    <a href="#">运动馆</a>
-                                  </li>
-                                  <li>
-                                    <a href="#">运动馆</a>
-                                  </li>
-                                  <li>
-                                    <a href="#">运动馆</a>
-                                  </li>
-                                  <li>
-                                    <a href="#">运动馆</a>
-                                  </li>
-                                  <li>
-                                    <a href="#">运动馆</a>
-                                  </li>
-                                  <li>
-                                    <a href="#">运动馆</a>
-                                  </li>
-                                  <li>
-                                    <a href="#">运动馆</a>
-                                  </li>
-                                  <li>
-                                    <a href="#">运动馆</a>
-                                  </li>
-                                  <li>
-                                    <a href="#">运动馆</a>
-                                  </li>
-                                  <li>
-                                    <a href="#">运动馆</a>
-                                  </li>
+                                 <!-- 挖坑 -->
                                 </ul>  
                         </div>
                       </div>
@@ -74,42 +42,7 @@
                       <div class="mui-scroll">
                         <!--这里放置真实显示的DOM内容-->
                            <ul>
-                             <li>
-                               <a href="">
-                                 <img src="./images/brand1.png" alt="">
-                                 <p>耐克</p>
-                                </a>
-                            </li>
-                             <li>
-                               <a href="">
-                                 <img src="./images/brand2.png" alt="">
-                                 <p>耐克</p>
-                                </a>
-                            </li>
-                             <li>
-                               <a href="">
-                                 <img src="./images/brand3.png" alt="">
-                                 <p>耐克</p>
-                                </a>
-                            </li>
-                             <li>
-                               <a href="">
-                                 <img src="./images/brand4.png" alt="">
-                                 <p>耐克</p>
-                                </a>
-                            </li>
-                             <li>
-                               <a href="">
-                                 <img src="./images/brand5.png" alt="">
-                                 <p>耐克</p>
-                                </a>
-                            </li>
-                             <li>
-                               <a href="">
-                                 <img src="./images/brand1.png" alt="">
-                                 <p>耐克</p>
-                                </a>
-                            </li>
+                                  <!-- 挖个坑 -->
                            </ul>
                       </div>
                     </div>
@@ -128,10 +61,36 @@
           </ul>
         </div>
     </div>
+<!-- 左侧模板 -->
+<script type="text/html" id ="leftTpl">
+  {{each rows v i}}
+     <li>
+      <a  data-id={{v.id}} class="{{  i ===0 ? 'current' : '' }}" href="#">{{ v.categoryName}}</a>
+    </li>
+  {{/each}}
+</script>
+<!-- 右侧模板 -->
+<script type="text/html" id="rightTpl">
+  {{ if rows.length === 0 }}
+    <p class="tips">没有更多分类信息了</p>
+  {{ /if }}
+
+  {{ each rows v i }}
+    <li>
+      <a href="#">
+        <img src="{{ v.brandLogo }}" alt="">
+        <p>{{ v.brandName }}</p>
+      </a>
+    </li>
+  {{ /each }}
+</script>
+
 <script src="./lib/zepto/zepto.min.js"></script>
 <script src="./lib/mui/js/mui.js"></script>
+<script src="./lib/artTemplate/template-web.js"></script>
 <script src="./js/common.js"></script>
 <script src="./js/category.js"></script>
+
 
 </body>
 </html>

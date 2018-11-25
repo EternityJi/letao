@@ -2,3 +2,26 @@
   color: #fff;
 }
 /*  */
+.lt_category_left{
+   position: relative;
+   width:90px ;
+   height: 100%;
+   float: left;
+   /* background: pink; */
+   overflow: hidden;
+ 
+}
+.lt_category_right{
+  overflow: hidden;
+  height: 100%;
+  background: green;
+  position: relative;
+}
+.lt_category_left li a{
+     width: 90px;
+     height: 50px;
+     display: block;
+     border:1px solid #ccc;
+     text-align: center;
+     line-height: 50px; 
+}

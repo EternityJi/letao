@@ -31,7 +31,7 @@ $(function() {
     var arr = getHistory();
     // template( 模板id, 数据对象 ); 第二个要求必须是对象
     var htmlStr = template( "historyTpl", { arr: arr } );
-    $('.lt_history').html( htmlStr );
+    $('.lt_main').html( htmlStr );
   }
 
 

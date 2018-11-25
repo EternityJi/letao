@@ -24,7 +24,7 @@
          <!-- 搜索框 -->
          <div class="lt_search">
              <input type="text" placeholder="请输入关键字">
-             <button class="mui-btn mui-btn-primary btnSearh">搜索</button>
+             <button class="mui-btn mui-btn-primary btnSearch">搜索</button>
          </div>
          <!-- 导航 -->
          <div class="lt_search_nav">
@@ -36,21 +36,10 @@
         <!-- 主体部分 -->
         <div class="lt_main">
             <!-- 乐淘搜索历史 -->
-             <div class="lt_history">
-              <!-- 标题 -->
-                  <div class="title">
-                      <span class="mui-pull-left">搜索历史</span>
-                      <span class="mui-pull-right"><i class="fa fa-trash">清空记录</i></span>
-                  </div>
-                  <div class="content">
-                      <ul class="searchul">
-                          <li><a href="#">1111<i class="mui-icon btn-delete mui-icon-closeempty mui-pull-right"></i></a></li>
-                          <li><a href="#">1111<i class="mui-icon btn-delete mui-icon-closeempty mui-pull-right"></i></a></li>
-                        </ul>
-                  </div>
-                 
+            <div class="lt_history">
 
-             </div>
+            </div>
+            <!-- 挖个坑 -->
         </div>
         <!-- 底部 -->
         <div class="lt_footer">
@@ -62,8 +51,31 @@
             </ul>
           </div>
     </div>
+    <!-- 搜索历史模板 -->
+    <script type="text/html" id="historyTpl">
+        {{if arr.length >0}}
+                <!-- 标题 -->
+                    <div class="title">
+                        <span class="mui-pull-left">搜索历史</span>
+                        <span class="mui-pull-right btnempty"><i class="fa fa-trash">清空记录</i></span>
+                    </div>
+                    <div class="content">
+                        <ul class="searchul">
+                            {{each arr v i}}
+                            <li><a href="searchList.html?key={{v}}">{{v}}</a><i　data-index={{i}} class="mui-icon btn-delete mui-icon-closeempty mui-pull-right"></i></li>
+                            {{/each}}
+                          </ul>
+                    </div>
+              
+               {{else}}
+               <p> 没有更多数据了 </p>
+       {{/if}}
+    </script>
+<script src="./lib/zepto/zepto.min.js"></script>   
 <script src="./lib/mui/js/mui.js"></script>
+<script src="./lib/artTemplate/template-web.js"></script>
 <script src="./js/common.js"></script>
+<script src="./js/search.js"></script>
 
 </body>
 </html>

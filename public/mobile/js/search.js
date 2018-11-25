@@ -135,7 +135,7 @@ $(function() {
     if ( arr.length >= 10 ) {
       // 移除最后一个
       arr.pop();
-    }
+    }]
 
 
     arr.unshift( key ); // 往最前面追加

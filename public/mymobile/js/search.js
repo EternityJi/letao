@@ -116,7 +116,7 @@ $(function(){
           // 重置输入输入框
           $(".lt_search input").val("");
           
-          
+          location.href="search_list.html?key="+content;
   })
    
 })

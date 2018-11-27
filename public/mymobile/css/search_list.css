@@ -31,6 +31,9 @@ font-size: 12px;
   float: left;
   text-align: center;
 }
+.lt_search_nav a.current{
+    color: orange;
+}
 /* 产品部分 */
 .lt_product{
   padding: 10px;

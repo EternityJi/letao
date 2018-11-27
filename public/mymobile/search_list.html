@@ -32,20 +32,20 @@
                   </div>
                   <!-- 导航 -->
                   <div class="lt_search_nav">
-                      <a href="#">上架时间<i class="fa fa-angle-down"></i></a>
-                      <a href="#">价格<i class="fa fa-angle-down"></i></a>
-                      <a href="#">库存<i class="fa fa-angle-down"></i></a>
+                      <a class="current" href="#">上架时间<i class="fa fa-angle-down"></i></a>
+                      <a data-type="price" href="#">价格<i class="fa fa-angle-down"></i></a>
+                      <a data-type="num" href="#">库存<i class="fa fa-angle-down"></i></a>
                       <a href="#">折扣<i class="fa fa-angle-down"></i></a>
                   </div>
                  <!-- 产品区域 -->
                  <div class="lt_product">
                        
-                    <!-- <div class="loading"></div> -->
+                    <div class="loading"></div>
                      
-                      <ul>
+                   
                            <!-- 挖个坑 -->
-                           <div class="loading"></div>
-                      </ul>
+                           <!-- <div class="loading"></div> -->
+                  
                       
                  </div>
               </div>
@@ -63,9 +63,10 @@
     </div>
     <!-- 搜索历史模板 -->
     <script type="text/html" id="productTpl">
+        <ul>
       {{each data v i}}
           <li>
-            <a href="">
+            <a href="product1.html?productId={{v.id}}">
             <img src="{{v.pic[0].picAddr}}" alt=""></a>
              <p class="mui-ellipsis-2">{{v.proName}}</p>
              <p>
@@ -76,6 +77,7 @@
           </li>
        
         {{/each}}
+    </ul>
     </script>
 <script src="./lib/zepto/zepto.min.js"></script>   
 <script src="./lib/mui/js/mui.js"></script>
